@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "../src/assets/styles/style.scss";
+import {connect} from "react-redux";
+import HeaderContainer from "./components/Main/Header/HeaderContainer";
+import {getDarkMode} from "./redux/selectors";
+import BannerContainer from "./components/Main/Banner/BannerContainer";
+import NewProductsContainer from "./components/Main/ProductsBlock/NewProductsContainer";
+import TopProductsContainer from "./components/Main/ProductsBlock/TopProductsContainer";
+import FooterContainer from "./components/Main/Footer/FooterContainer";
 
-function App() {
+const App = props => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='app'>
+        <div className={ props.darkMode ? 'container dark' : 'container'}>
+          <HeaderContainer />
+          <BannerContainer />
+          <NewProductsContainer title='Нове' />
+          <TopProductsContainer title='Топ продажів' />
+          <FooterContainer />
+        </div>
+      </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        darkMode: getDarkMode(state)
+    }
+}
+
+export default connect(mapStateToProps, null)(App);

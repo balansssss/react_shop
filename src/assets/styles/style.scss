@@ -1,0 +1,549 @@
+
+/*Fonts*/
+
+@font-face {
+  font-family: 'Inter Regular';
+  src: url('fonts/Inter/Inter-VariableFont_slnt,wght.ttf');
+}
+
+/*Variables*/
+
+$col_black: #000000;
+$col_white: #ffffff;
+$col_darkgrey: #3b3b3b;
+$col_unactive: #82828B;
+$col_palgrey: #F0F0F5;
+$col_primary: #595CFF;
+$col_secondary: #8C8EFF;
+$col_primarydark: #383BE4;
+
+$trans: .5s;
+
+/*Mixins*/
+@mixin flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex_row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin simple_size($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin filter() {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}
+
+/*Styles*/
+
+* {
+  font-family: 'Inter Regular';
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 0 30px;
+  transition: $trans;
+}
+
+.container.dark{
+  background-color: $col_darkgrey;
+  & > * {
+    color: $col_white;
+  }
+
+  .header {
+    .menu {
+      img {
+        @include filter();
+      }
+    }
+  }
+}
+
+/*Header*/
+.header {
+  @include flex_column;
+
+  .menu, .nav {
+    @include flex_row
+  }
+
+  .menu {
+    justify-content: space-between;
+    padding: 20px 0;
+    align-items: center;
+
+    img {
+      cursor: pointer;
+      @include simple_size(16px);
+    }
+
+    .mode {
+      img {
+
+      }
+    }
+
+    .logo {
+      text-transform: uppercase;
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+
+    .buttons {
+      @include flex_row;
+
+      img {
+        &:nth-child(1) {
+          transform: translateX(-20px);
+        }
+      }
+    }
+  }
+
+  .nav {
+    justify-content: center;
+    padding: 28px 0;
+
+    .item {
+      margin: 0 33px;
+      cursor: pointer;
+      transition: $trans;
+
+      &:hover {
+        color: $col_primarydark;
+      }
+    }
+  }
+}
+
+/*Banner*/
+.banners {
+  @include flex_row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .banner {
+    @mixin banner_img($url) {
+      background: url($url);
+      background-size: cover;
+    }
+
+    max-width: 300px;
+    //max-height: 100px;
+    width: 100%;
+    margin-top: 20px;
+    padding: 50px 80px;
+    background-color: #8C8EFF;
+    border-radius: 4px;
+    color: $col_black;
+
+    &:nth-child(1) {
+      width: 100%;
+      max-width: 100%;
+      @include banner_img("img/banners/banner1.jpg");
+    }
+
+    &:nth-child(2) {
+      @include banner_img("img/banners/banner2.jpg");
+      display: none;
+    }
+
+    &:nth-child(3) {
+      @include banner_img("img/banners/banner3.png");
+      background-position: center top -40px;
+      display: none;
+    }
+
+    .title {
+      font-size: 22px;
+      line-height: 28px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border-radius: 4px;
+      @include flex_row;
+      align-items: center;
+      border: none;
+      background-color: $col_black;
+      color: $col_white;
+      cursor: pointer;
+      transition: $trans;
+
+      &:hover {
+        background-color: $col_primarydark;
+      }
+
+      img {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+/*ProductsBlock*/
+.productsblock {
+  margin-top: 70px;
+
+  .products {
+    margin-top: 30px;
+    @include flex_row;
+    justify-content: space-between;
+
+    .product {
+      text-align: center;
+      @include flex_column();
+      align-items: center;
+
+      &:hover {
+        & > .button {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &:nth-child(3) {
+        display: none;
+      }
+
+      &:nth-child(4) {
+        display: none;
+      }
+
+      $img_size: 200px;
+
+      img {
+        @include simple_size($img_size);
+        border-radius: 4px;
+      }
+
+      .title {
+        margin-top: 15px;
+      }
+
+      .price {
+        margin-top: 8px;
+        line-height: 17px;
+
+        .sale {
+          margin-left: 7px;
+          text-decoration: line-through;
+          color: $col_unactive;
+          line-height: 18px;
+        }
+      }
+
+      .button {
+        cursor: pointer;
+        padding: 8px;
+        border: none;
+        border-radius: 2px;
+        transition: $trans;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        margin-top: $img_size - 60px;
+        outline: none;
+        background-color: $col_palgrey;
+
+        &:hover {
+          background-color: $col_primary;
+
+          &>.icon {
+            @include filter();
+          }
+        }
+
+        .icon {
+          @include simple_size(24px);
+          transition: $trans;
+        }
+      }
+    }
+  }
+}
+
+/*Footer*/
+.footer {
+  @include flex_row;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 50px;
+
+  span {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/*Media Screens*/
+
+$sizes: ("sm":575.98px, "md":767.98px, "lg":991.98px, "xl":1199.98px);
+
+@mixin md($minmax, $size) {
+  @media only screen and (#{$minmax}-width: $size) {
+    @content;
+  }
+}
+
+@mixin media($minmax, $media) {
+  @each $size, $resolution in $sizes {
+    @if $media == $size {
+      @media only screen and (#{$minmax}-width: $resolution) {
+        @content;
+      }
+    }
+  }
+}
+
+
+@include md("max", 510px) {
+  .banners {
+    .banner {
+      text-align: center;
+
+      button {
+        margin: 20px auto 0 auto;
+      }
+    }
+  }
+
+  .productsblock {
+    .products {
+      .product {
+        $size: 200px;
+
+        img {
+          @include simple_size($size);
+        }
+
+        button {
+          margin-top: $size - 60px !important;
+        }
+      }
+    }
+  }
+}
+
+@include md("max", 460px) {
+  .banners {
+    .banner {
+      padding: 40px 60px;
+    }
+  }
+
+  .productsblock {
+    .products {
+      justify-content: center;
+
+      .product {
+        &:nth-child(2) {
+          display: none;
+        }
+
+        $size: 280px;
+
+        img {
+          @include simple_size($size);
+        }
+
+        button {
+          margin-top: $size - 60px !important;
+        }
+      }
+    }
+  }
+}
+
+@include media("min", "sm") {
+  .container {
+    max-width: 540px;
+    margin: auto;
+    padding: 0;
+  }
+
+  .banners {
+    .banner:nth-child(2), .banner:nth-child(3) {
+      display: none;
+    }
+  }
+
+  .productsblock {
+    .products {
+      .product {
+        $size: 260px;
+
+        img {
+          @include simple_size($size)
+        }
+
+        button {
+          margin-top: $size - 60px !important;
+        }
+      }
+    }
+  }
+}
+
+@include media("min", "md") {
+  .container {
+    max-width: 720px;
+  }
+
+  .productsblock {
+    .products {
+      .product {
+
+        $size: 230px;
+
+        img {
+          @include simple_size($size)
+        }
+
+        button {
+          margin-top: $size - 60px !important;
+        }
+
+        &:nth-child(3) {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include media("min", "lg") {
+  .container {
+    max-width: 960px;
+  }
+
+  .banners {
+    .banner {
+      &:nth-child(2) {
+        display: block;
+      }
+
+      &:nth-child(3) {
+        display: block;
+      }
+    }
+  }
+
+  .productsblock {
+    .products {
+      .product {
+        &:last-child {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@include media("min", "xl") {
+  .container {
+    max-width: 1280px;
+    padding: 0 120px;
+  }
+
+  .banners {
+    .banner {
+      max-width: 310px
+    }
+  }
+}
+
+@include md("min", 1300px) {
+  .banners {
+    .banner {
+      max-width: 360px;
+    }
+  }
+
+  .productsblock {
+    .products {
+      .product {
+        $size: 250px;
+
+        img {
+          @include simple_size($size)
+        }
+
+        button {
+          margin-top: $size - 60px !important;
+        }
+      }
+    }
+  }
+}
+
+@include md("min", 1400px) {
+  .banners {
+    .banner {
+      max-width: 410px;
+    }
+  }
+
+  .productsblock {
+    .products {
+      .product {
+        $size: 280px;
+
+        img {
+          @include simple_size($size)
+        }
+
+        button {
+          margin-top: $size - 60px !important;
+        }
+      }
+    }
+  }
+}
+
+@include md("min", 1520px) {
+  .banners {
+    .banner {
+      max-width: 470px;
+    }
+  }
+}
+
+
+/*@mixin banner_response($size, $width) {
+  @media only screen and (min-width: $size) {
+    .banners {
+      .banner {
+        max-width: $width;
+      }
+    }
+  }
+}
+
+@include banner_response(1150px, 300px);
+@include banner_response(1250px, 330px);
+@include banner_response(1300px, 360px);
+@include banner_response(1350px, 380px);
+@include banner_response(1400px, 400px);
+@include banner_response(1450px, 420px);
+@include banner_response(1500px, 460px);
+@include banner_response(1550px, 470px);*/
+
+
