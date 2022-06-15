@@ -201,6 +201,39 @@ $trans: .5s;
 .productsblock {
   margin-top: 70px;
 
+  .head {
+    @include flex_row();
+    justify-content: space-between;
+    align-items: center;
+
+    .nav {
+      @include flex_row();
+      width: 60px;
+      justify-content: space-between;
+
+      button {
+        cursor: pointer;
+        padding: 5px;
+        border: none;
+        border-radius: 2px;
+        transition: $trans;
+        background-color: $col_palgrey;
+
+        &:hover {
+          background-color: $col_primary;
+
+          &>img {
+            @include filter();
+          }
+        }
+
+        img {
+          @include simple_size(18px);
+        }
+      }
+    }
+  }
+
   .products {
     margin-top: 30px;
     @include flex_row;

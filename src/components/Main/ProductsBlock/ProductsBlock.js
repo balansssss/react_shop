@@ -1,10 +1,20 @@
 import cart_icon from "../../../assets/img/ProductsBlock/Cart.png";
+import prev from "../../../assets/img/ProductsBlock/prev.png";
+import next from "../../../assets/img/ProductsBlock/next.png";
 
 const ProductsBlock = props => {
     return (
         <div className='productsblock'>
             <div className='head'>
                 <b className='title'>{props.title}</b>
+                <div className='nav'>
+                    <button>
+                        <img src={prev} alt='Prev' onClick={() => props.prevProduct(props.products)} />
+                    </button>
+                    <button>
+                        <img src={next} alt='Next' onClick={() => props.nextProduct(props.products)} />
+                    </button>
+                </div>
             </div>
             <div className='products'>
                 {props.products.map(p=>{
