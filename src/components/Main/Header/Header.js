@@ -19,7 +19,7 @@ const Header = props => {
             </div>
             <div className='nav'>
                 <div className='item'>Головна</div>
-                <div className='item'>Каталог</div>
+                {/*<div className='item'>Каталог</div>*/}
                 <div className='item'>Про нас</div>
             </div>
         </div>

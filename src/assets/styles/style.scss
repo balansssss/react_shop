@@ -15,7 +15,8 @@ $col_unactive: #82828B;
 $col_palgrey: #F0F0F5;
 $col_primary: #595CFF;
 $col_secondary: #8C8EFF;
-$col_primarydark: #383BE4;
+$col_primarydark: #383be4;
+$col_warning: #f9933c;
 
 $trans: .5s;
 
@@ -88,7 +89,7 @@ $trans: .5s;
   transition: $trans;
 }
 
-.container.dark{
+.app.dark{
   background-color: $col_darkgrey;
   & > * {
     color: $col_white;
@@ -160,6 +161,8 @@ $trans: .5s;
   }
 }
 
+
+/*MAIN*/
 /*Banner*/
 
 .banners_container {
@@ -361,6 +364,16 @@ $trans: .5s;
   }
 }
 
+/*NOT FOUND*/
+.notfound {
+  text-align: center;
+  margin: 230px 0;
+}
+
+.ms-warning {
+  color: $col_warning;
+}
+
 /*Media Screens*/
 
 $sizes: ("sm":575.98px, "md":767.98px, "lg":991.98px, "xl":1199.98px);
@@ -380,7 +393,6 @@ $sizes: ("sm":575.98px, "md":767.98px, "lg":991.98px, "xl":1199.98px);
     }
   }
 }
-
 
 @include md("max", 510px) {
   .banners {

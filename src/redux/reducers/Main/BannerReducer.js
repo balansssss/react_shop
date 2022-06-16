@@ -1,5 +1,4 @@
 import {NEXT_BANNER, PREV_BANNER} from "../../actions";
-import {funcNextProduct, funcPrevProduct} from "./ProductsBlockReducer";
 import {nextController, prevController} from "./controllers";
 
 const initialState = {

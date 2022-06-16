@@ -1,23 +1,24 @@
 import "../src/assets/styles/style.scss";
 import {connect} from "react-redux";
-import HeaderContainer from "./components/Main/Header/HeaderContainer";
 import {getDarkMode} from "./redux/selectors";
-import BannerContainer from "./components/Main/Banner/BannerContainer";
-import NewProductsContainer from "./components/Main/ProductsBlock/NewProductsContainer";
-import TopProductsContainer from "./components/Main/ProductsBlock/TopProductsContainer";
-import FooterContainer from "./components/Main/Footer/FooterContainer";
+import Main from "./components/Main/Main";
+import {Routes, Route, BrowserRouter} from "react-router-dom";
+import Product from "./components/Product/Product";
+import NotFound from "./components/NotFound/NotFound";
 
 const App = props => {
   return (
-      <div className='app'>
-        <div className={ props.darkMode ? 'container dark' : 'container'}>
-          <HeaderContainer />
-          <BannerContainer />
-          <NewProductsContainer title='Нове' />
-          <TopProductsContainer title='Топ продажів' />
-          <FooterContainer />
-        </div>
-      </div>
+      <BrowserRouter>
+          <div className={ props.darkMode ? 'app dark' : 'app'}>
+            <div className='container'>
+                <Routes>
+                    <Route path='/' element={ <Main />} />
+                    <Route path='/product/:id' element={ <Product />} />
+                    <Route path='*' exact element={ <NotFound /> } />
+                </Routes>
+            </div>
+          </div>
+      </BrowserRouter>
   );
 }
 

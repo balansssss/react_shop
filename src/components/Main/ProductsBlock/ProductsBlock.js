@@ -20,7 +20,7 @@ const ProductsBlock = props => {
                 {props.products.map((p,i)=>{
                     if (i<4) {
                         return (
-                            <div key={p.id} className='product'>
+                            <div key={p.id} className='product' onClick={ () => props.openProduct(p.id)}>
                                 <img alt='product'
                                      src={/*p.img.url*/'https://st.focusedcollection.com/9264440/i/650/focused_194907278-stock-photo-conceptual-girl-picking-flower-white.jpg'}/>
                                 <p className='title'>{p.title}</p>
