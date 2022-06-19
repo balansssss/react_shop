@@ -2,6 +2,7 @@ import React from "react";
 import cart from "../../../assets/img/Header/Cart.png";
 import search from "../../../assets/img/Header/Search.png";
 import themeMode from "../../../assets/img/Header/ThemeMode.png";
+import {NavLink} from "react-router-dom";
 
 const Header = props => {
 
@@ -18,9 +19,15 @@ const Header = props => {
                 </div>
             </div>
             <div className='nav'>
-                <div className='item'>Головна</div>
-                {/*<div className='item'>Каталог</div>*/}
-                <div className='item'>Про нас</div>
+                <div className='item'>
+                    <NavLink to='/'>Головна</NavLink>
+                </div>
+                <div className='item'>
+                    <NavLink to='/catalog'>Каталог</NavLink>
+                </div>
+                <div className='item'>
+                    <NavLink to='/about'>Про нас</NavLink>
+                </div>
             </div>
         </div>
     )

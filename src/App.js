@@ -3,8 +3,9 @@ import {connect} from "react-redux";
 import {getDarkMode} from "./redux/selectors";
 import Main from "./components/Main/Main";
 import {Routes, Route, BrowserRouter} from "react-router-dom";
-import Product from "./components/Product/Product";
 import NotFound from "./components/NotFound/NotFound";
+import ProductContainer from "./components/Product/ProductContainer";
+import CatalogContainer from "./components/Catalog/CatalogContainer";
 
 const App = props => {
   return (
@@ -13,7 +14,8 @@ const App = props => {
             <div className='container'>
                 <Routes>
                     <Route path='/' element={ <Main />} />
-                    <Route path='/product/:id' element={ <Product />} />
+                    <Route path='/product/:id' element={ <ProductContainer />} />
+                    <Route path='/catalog' element={ <CatalogContainer   />} />
                     <Route path='*' exact element={ <NotFound /> } />
                 </Routes>
             </div>
