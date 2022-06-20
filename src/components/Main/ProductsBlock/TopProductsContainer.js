@@ -1,29 +1,39 @@
 import ProductsBlock from "./ProductsBlock";
+import React from "react";
 import {connect} from "react-redux";
-import {getTopProducts} from "../../../redux/selectors";
-import {prevTopProduct, nextTopProduct} from "../../../redux/reducers/Main/ProductsBlockReducer";
-import {useNavigate} from "react-router-dom";
+import {getTopProducts, initializeTopProducts} from "../../../redux/selectors";
+import {prevTopProduct, nextTopProduct, initialTopProducts} from "../../../redux/reducers/Main/ProductsBlockReducer";
+import {ProductContainerWithNavigate} from "./ProductContainerWithNavigate";
+import {compose} from "redux";
 
-const NewProductsContainer = props => {
-    const navigate = useNavigate();
-
-    const openProduct = id => {
-        return navigate(`/product/${id}`)
+class TopProductsContainer extends React.Component {
+    constructor() {
+        super();
     }
 
-    return (
-        <ProductsBlock title={props.title}
-                       products={props.topProducts}
-                       prevProduct={props.prevTopProduct}
-                       nextProduct={props.nextTopProduct}
-                       openProduct={openProduct} />
-    )
+    componentDidMount() {
+        this.props.initialTopProducts(this.props.initializeProducts)
+    }
+
+    render() {
+        return (
+            <ProductsBlock title={this.props.title}
+                           products={this.props.topProducts}
+                           prevProduct={this.props.prevTopProduct}
+                           nextProduct={this.props.nextTopProduct}
+                           openProduct={this.props.openProduct} />
+        )
+    }
 }
 
 const mapStateToProps = state => {
     return {
+        initializeProducts: initializeTopProducts(state),
         topProducts: getTopProducts(state)
     }
 }
 
-export default connect(mapStateToProps, {prevTopProduct , nextTopProduct})(NewProductsContainer)
+export default compose(
+    connect(mapStateToProps, {prevTopProduct , nextTopProduct, initialTopProducts}),
+    ProductContainerWithNavigate)
+(TopProductsContainer)

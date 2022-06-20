@@ -9,6 +9,22 @@ export const getBanners = state => {
 }
 
 /*ProductsBlock*/
+export const initializeNewProducts = state => {
+    const products = state.CatalogReducer.products.filter(p => {
+        return p.tags.includes('new')
+    })
+
+    return products
+}
+
+export const initializeTopProducts = state => {
+    const products = state.CatalogReducer.products.filter(p => {
+        return p.tags.includes('top')
+    })
+
+    return products
+}
+
 export const getNewProducts = state => {
     return state.ProductsBlockReducer.newProducts
 }
