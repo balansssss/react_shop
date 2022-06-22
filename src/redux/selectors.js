@@ -32,3 +32,20 @@ export const getNewProducts = state => {
 export const getTopProducts = state => {
     return state.ProductsBlockReducer.topProducts
 }
+
+/*Catalog*/
+
+export const getTitleCatalog = state => {
+    return state.CatalogReducer.title
+}
+
+export const getProducts = state => {
+    return state.CatalogReducer.filterProducts;
+}
+
+export const getFilters = state => {
+    return state.CatalogReducer.filters
+}
+
+/*Product*/
+

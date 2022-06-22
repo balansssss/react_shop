@@ -1,20 +1,29 @@
-
 const Product = props => {
+    const p = props.product
 
     return (
         <div className='product-card'>
             <div>
                 <img className='product-img' alt='Product Image'
-                     src={'https://st.focusedcollection.com/9264440/i/650/focused_194907278-stock-photo-conceptual-girl-picking-flower-white.jpg'}/>
+                     src={props.product.img.url}/>
             </div>
             <div className='product-info'>
-                <h2>Title {props.productId}</h2>
-                <p className='product-price'><b>46$</b> <span className='product-sale'>58$</span></p>
+                <h2>{p.title}</h2>
+                {
+                    p.sale
+                        ? <p className='product-price'><b>{p.sale} ₴ </b><span
+                            className='product-sale'>{p.price} ₴ </span></p>
+                        : <p className='product-price'><b>{p.price} ₴</b></p>
+                }
                 <div className='product-options counter'>
                     <p className='options-title'>Кількість:</p>
-                    <button className='but-counter'>-</button>
-                    <span className='counter'>0</span>
-                    <button className='but-counter'>+</button>
+                    <button className='but-counter'
+                            onClick={() => props.changeCounter('-')}
+                    >-</button>
+                    <span className='counter'>{props.counter}</span>
+                    <button className='but-counter'
+                            onClick={() => props.changeCounter('+')}
+                    >+</button>
                 </div>
                 <div className='product-options'>
                     <p className='options-title'>Колір:</p>
@@ -25,8 +34,17 @@ const Product = props => {
                 </div>
                 <button className='but-buy'>Купити зараз</button>
                 <div className='details'>
-                    <div className='title'>Опис</div>
-                    <button className='but-details'>+</button>
+                    <div className='detail-header'>
+                        <div className='title'>Опис</div>
+                        <button className='but-detail'
+                                onClick={ props.showDetails }>+</button>
+                    </div>
+                    { props.details
+                        ? <div className='detail-info'>
+                            {props.product.detail}
+                        </div>
+                        : null
+                    }
                 </div>
             </div>
         </div>
