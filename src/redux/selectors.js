@@ -43,6 +43,10 @@ export const getProducts = state => {
     return state.CatalogReducer.filterProducts;
 }
 
+export const getMaxProduct = state => {
+    return state.CatalogReducer.maxProduct;
+}
+
 export const getFilters = state => {
     return state.CatalogReducer.filters
 }

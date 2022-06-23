@@ -3,16 +3,29 @@ import {compose} from "redux";
 import HeaderContainer from "../Main/Header/HeaderContainer";
 import FooterContainer from "../Main/Footer/FooterContainer";
 import Catalog from "./Catalog";
-import {getProducts, getTitleCatalog} from "../../redux/selectors";
+import {getProducts, getTitleCatalog, getMaxProduct} from "../../redux/selectors";
 import {ProductContainerWithNavigate} from "../Main/ProductsBlock/ProductContainerWithNavigate";
+import {setCatalog, showMoreProducts} from "../../redux/reducers/Catalog/CatalogReducer";
+import {useEffect} from "react";
 
 const CatalogContainer = props => {
+
+    useEffect(() => {
+        props.setCatalog();
+    }, [])
+
+    const showMoreButton = () => {
+        return props.products.length > props.maxProduct ? true : false;
+    }
+
     return (
         <div>
             <HeaderContainer />
-            <Catalog products={props.products}
+            <Catalog products={props.products.slice(0, props.maxProduct)}
                      title={props.titleCatalog}
-                     openProduct={props.openProduct}   />
+                     openProduct={props.openProduct}
+                     showMoreProducts={props.showMoreProducts}
+                     showMoreButton={showMoreButton()} />
             <FooterContainer />
         </div>
     )
@@ -21,11 +34,12 @@ const CatalogContainer = props => {
 const mapStateToProps = state => {
     return {
         titleCatalog: getTitleCatalog(state),
-        products: getProducts(state)
+        products: getProducts(state),
+        maxProduct: getMaxProduct(state)
     }
 }
 
 export default compose(
-    connect(mapStateToProps, null),
+    connect(mapStateToProps, {setCatalog, showMoreProducts}),
     ProductContainerWithNavigate)
 (CatalogContainer);
