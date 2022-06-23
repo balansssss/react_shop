@@ -15,9 +15,10 @@ const initialState = {
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: [
-                    { style: 'pink', productId: 2 },
-                    { style: 'red', productId: 3 },
-                    { style: 'yellow', productId: 4 },
+                    { style: '#ff26af', productId: 2 },
+                    { style: '#ff2626', productId: 3 },
+                    { style: '#ffff2e', productId: 4 },
+                    { style: '#ff8426', productId: 5 },
                 ]
             }
         },
@@ -33,9 +34,10 @@ const initialState = {
             detail: 'Рожевий колір бутонів троянд і букет з цих прекрасних квітів висловлює симпатію і солодкі думки, ніжні емоції і почуття захоплення! Рожеві троянди часто символізують новий початок відносин, якийсь натяк на те почуття, яке, можливо в недалекому майбутньому, розгориться у всю силу і вразить двох закоханих в саме серце!',
             options: {
                 colors: [
-                    { style: 'white', productId: 1 },
-                    { style: 'red', productId: 3 },
-                    { style: 'yellow', productId: 4 },
+                    { style: '#ebe9e8', productId: 1 },
+                    { style: '#ff2626', productId: 3 },
+                    { style: '#ffff2e', productId: 4 },
+                    { style: '#ff8426', productId: 5 },
                 ]
             }
         },
@@ -51,9 +53,10 @@ const initialState = {
             detail: 'Червона троянда завжди в моді! А така хмара червоних троянд - приголомшливий подарунок для неї!',
             options: {
                 colors: [
-                    { style: 'white', productId: 1 },
-                    { style: 'pink', productId: 2 },
-                    { style: 'yellow', productId: 4 },
+                    { style: '#ebe9e8', productId: 1 },
+                    { style: '#ff26af', productId: 2 },
+                    { style: '#ffff2e', productId: 4 },
+                    { style: '#ff8426', productId: 5 },
                 ]
             }
         },
@@ -69,9 +72,10 @@ const initialState = {
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: [
-                    { style: 'white', productId: 1 },
-                    { style: 'pink', productId: 2 },
-                    { style: 'red', productId: 2 },
+                    { style: '#ebe9e8', productId: 1 },
+                    { style: '#ff26af', productId: 2 },
+                    { style: '#ff2626', productId: 3 },
+                    { style: '#ff8426', productId: 5 },
                 ]
             }
         },
@@ -87,9 +91,10 @@ const initialState = {
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: [
-                    { style: 'white', productId: 1 },
-                    { style: 'pink', productId: 2 },
-                    { style: 'red', productId: 2 },
+                    { style: '#ebe9e8', productId: 1 },
+                    { style: '#ff26af', productId: 2 },
+                    { style: '#ff2626', productId: 3 },
+                    { style: '#ffff2e', productId: 4 },
                 ]
             }
         },

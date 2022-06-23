@@ -5,7 +5,7 @@ const Product = props => {
         <div className='product-card'>
             <div>
                 <img className='product-img' alt='Product Image'
-                     src={props.product.img.url}/>
+                     src={props.product.img.url} />
             </div>
             <div className='product-info'>
                 <h2>{p.title}</h2>
@@ -25,13 +25,27 @@ const Product = props => {
                             onClick={() => props.changeCounter('+')}
                     >+</button>
                 </div>
-                <div className='product-options'>
-                    <p className='options-title'>Колір:</p>
-                    <div className='options-color'>
-                        <div className='color'></div>
-                        <div className='color'></div>
-                    </div>
-                </div>
+                    {
+                        p.options.colors.length > 0
+                            ?
+                            <div className='product-options'>
+                                <p className='options-title'>Колір:</p>
+                                <div className='options-color'>
+                                    {
+                                        p.options.colors.map(c => {
+                                            return (
+                                                <div key={c.productId}
+                                                     className='color'
+                                                     style={{backgroundColor: `${c.style}`}}
+                                                     onClick={ () => props.openProduct(c.productId)}></div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                            : null
+                    }
+
                 <button className='but-buy'>Купити зараз</button>
                 <div className='details'>
                     <div className='detail-header'>

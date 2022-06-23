@@ -5,6 +5,8 @@ import Product from "./Product";
 import {useParams} from "react-router-dom";
 import {getProducts} from "../../redux/selectors";
 import {useState} from "react";
+import {ProductContainerWithNavigate} from "../Main/ProductsBlock/ProductContainerWithNavigate";
+import {compose} from "redux";
 
 const ProductContainer = props => {
     const params = useParams();
@@ -41,7 +43,8 @@ const ProductContainer = props => {
                      counter={counter}
                      changeCounter={changeCounter}
                      details={details}
-                     showDetails={showDetails} />
+                     showDetails={showDetails}
+                     openProduct={props.openProduct} />
             <FooterContainer />
         </div>
     )
@@ -53,4 +56,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(ProductContainer);
+export default compose(
+    connect(mapStateToProps, null),
+    ProductContainerWithNavigate)
+(ProductContainer);
