@@ -1,22 +1,27 @@
 import React from "react";
 import {connect} from "react-redux";
 import Header from "./Header";
-import {getDarkMode} from "../../../redux/selectors";
+import {getDarkMode, showSearch} from "../../../redux/selectors";
 import {changeDarkMode} from "../../../redux/reducers/Main/HeaderReducer";
+import {setShowSearch} from "../../../redux/reducers/Catalog/CatalogReducer";
 
 const HeaderContainer = props => {
     return (
         <Header darkMode={props.darkMode}
-                changeDarkMode={props.changeDarkMode}/>
+                changeDarkMode={props.changeDarkMode}
+                showSearch={props.showSearch}
+                setShowSearch={props.setShowSearch} />
     )
 }
 
 const mapStateToProps = state => {
     return {
-        darkMode: getDarkMode(state)
+        darkMode: getDarkMode(state),
+        showSearch: showSearch(state)
     }
 }
 
 export default connect(mapStateToProps, {
-    changeDarkMode
+    changeDarkMode,
+    setShowSearch
 })(HeaderContainer)

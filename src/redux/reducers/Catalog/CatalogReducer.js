@@ -1,4 +1,4 @@
-import {SET_CATALOG, SET_FILTER, SHOW_MORE_PRODUCTS} from "../../actions";
+import {SEARCH_PRODUCT, SET_CATALOG, SET_FILTER, SET_SHOW_SEARCH, SHOW_MORE_PRODUCTS} from "../../actions";
 
 const initialState = {
     title: 'Каталог',
@@ -11,14 +11,14 @@ const initialState = {
             category: 2,
             color: 2,
             tags: ['new', 'top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/890/fer-2883.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/890/fer-2883.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: [
-                    { style: '#ff26af', productId: 2 },
-                    { style: '#ff2626', productId: 3 },
-                    { style: '#ffff2e', productId: 4 },
-                    { style: '#ff8426', productId: 5 },
+                    {style: '#ff26af', productId: 2},
+                    {style: '#ff2626', productId: 3},
+                    {style: '#ffff2e', productId: 4},
+                    {style: '#ff8426', productId: 5},
                 ]
             }
         },
@@ -30,14 +30,14 @@ const initialState = {
             category: 2,
             color: 5,
             tags: ['new'],
-            img: { url: 'https://dicentra.ua/assets/images/products/2727/fer-16-01-22-rose-rose-15-black-4133.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/2727/fer-16-01-22-rose-rose-15-black-4133.jpg?scale.height=300'},
             detail: 'Рожевий колір бутонів троянд і букет з цих прекрасних квітів висловлює симпатію і солодкі думки, ніжні емоції і почуття захоплення! Рожеві троянди часто символізують новий початок відносин, якийсь натяк на те почуття, яке, можливо в недалекому майбутньому, розгориться у всю силу і вразить двох закоханих в саме серце!',
             options: {
                 colors: [
-                    { style: '#ebe9e8', productId: 1 },
-                    { style: '#ff2626', productId: 3 },
-                    { style: '#ffff2e', productId: 4 },
-                    { style: '#ff8426', productId: 5 },
+                    {style: '#ebe9e8', productId: 1},
+                    {style: '#ff2626', productId: 3},
+                    {style: '#ffff2e', productId: 4},
+                    {style: '#ff8426', productId: 5},
                 ]
             }
         },
@@ -49,14 +49,14 @@ const initialState = {
             category: 2,
             color: 3,
             tags: ['new'],
-            img: { url: 'https://dicentra.ua/assets/images/products/619/fer-15-01-22-granpree-25-crema-00331.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/619/fer-15-01-22-granpree-25-crema-00331.jpg?scale.height=300'},
             detail: 'Червона троянда завжди в моді! А така хмара червоних троянд - приголомшливий подарунок для неї!',
             options: {
                 colors: [
-                    { style: '#ebe9e8', productId: 1 },
-                    { style: '#ff26af', productId: 2 },
-                    { style: '#ffff2e', productId: 4 },
-                    { style: '#ff8426', productId: 5 },
+                    {style: '#ebe9e8', productId: 1},
+                    {style: '#ff26af', productId: 2},
+                    {style: '#ffff2e', productId: 4},
+                    {style: '#ff8426', productId: 5},
                 ]
             }
         },
@@ -68,14 +68,14 @@ const initialState = {
             category: 2,
             color: 4,
             tags: ['new', 'top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/2687/fer-2859.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/2687/fer-2859.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: [
-                    { style: '#ebe9e8', productId: 1 },
-                    { style: '#ff26af', productId: 2 },
-                    { style: '#ff2626', productId: 3 },
-                    { style: '#ff8426', productId: 5 },
+                    {style: '#ebe9e8', productId: 1},
+                    {style: '#ff26af', productId: 2},
+                    {style: '#ff2626', productId: 3},
+                    {style: '#ff8426', productId: 5},
                 ]
             }
         },
@@ -87,14 +87,14 @@ const initialState = {
             category: 2,
             color: 6,
             tags: ['new', 'top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/2883/b6eb598d7dd7d9632a6c81e30c403f17799dc9f3.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/2883/b6eb598d7dd7d9632a6c81e30c403f17799dc9f3.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: [
-                    { style: '#ebe9e8', productId: 1 },
-                    { style: '#ff26af', productId: 2 },
-                    { style: '#ff2626', productId: 3 },
-                    { style: '#ffff2e', productId: 4 },
+                    {style: '#ebe9e8', productId: 1},
+                    {style: '#ff26af', productId: 2},
+                    {style: '#ff2626', productId: 3},
+                    {style: '#ffff2e', productId: 4},
                 ]
             }
         },
@@ -106,7 +106,7 @@ const initialState = {
             category: 3,
             color: 3,
             tags: ['top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/906/fer-2744.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/906/fer-2744.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: []
@@ -120,7 +120,7 @@ const initialState = {
             category: 3,
             color: 4,
             tags: ['top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/908/cee7464440fbb904e8a0fa4a9a834c2fc1e97f22.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/908/cee7464440fbb904e8a0fa4a9a834c2fc1e97f22.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: []
@@ -134,7 +134,7 @@ const initialState = {
             category: 3,
             color: 2,
             tags: ['top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/1443/fer-15-01-22-chresanteme-white-11-rose-00445.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/1443/fer-15-01-22-chresanteme-white-11-rose-00445.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: []
@@ -148,7 +148,7 @@ const initialState = {
             category: 3,
             color: 5,
             tags: ['top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/1453/e95318189cf8e8ebd8de7e3a4f18c2869ba007c5.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/1453/e95318189cf8e8ebd8de7e3a4f18c2869ba007c5.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: []
@@ -162,7 +162,7 @@ const initialState = {
             category: 3,
             color: 5,
             tags: ['top'],
-            img: { url: 'https://dicentra.ua/assets/images/products/1593/064108636227d92b44133fea55f670a6d09d4b13.jpg?scale.height=300' },
+            img: {url: 'https://dicentra.ua/assets/images/products/1593/064108636227d92b44133fea55f670a6d09d4b13.jpg?scale.height=300'},
             detail: 'Тут може бути твiй опис.',
             options: {
                 colors: []
@@ -171,8 +171,8 @@ const initialState = {
     ],
     filterProducts: [],
     category: [
-        { id: 1, title: 'Рослини' },
-        { id: 2, title: 'Квіти' }
+        {id: 1, title: 'Рослини'},
+        {id: 2, title: 'Квіти'}
     ],
     filters: [
         {
@@ -197,7 +197,12 @@ const initialState = {
             current: 1
         }
     ],
-    maxProduct: 8
+    maxProduct: 8,
+    search: {
+        showSearch: false,
+        result: [],
+        message: null
+    }
 }
 
 const filterProducts = (state, filterId, category) => {
@@ -206,7 +211,7 @@ const filterProducts = (state, filterId, category) => {
     let filterProducts = [];
     let title = state.title;
 
-    filters.forEach(f=>{
+    filters.forEach(f => {
         if (f.title === category) {
             f.current = filterId
         }
@@ -229,7 +234,7 @@ const filterProducts = (state, filterId, category) => {
 
     if (category === 'category') {
         if (filterId !== 1) {
-            title = `Каталог / ${filters[0].options[filterId-1].title}`
+            title = `Каталог / ${filters[0].options[filterId - 1].title}`
         } else {
             title = 'Каталог'
         }
@@ -243,25 +248,69 @@ const filterProducts = (state, filterId, category) => {
     }
 }
 
+const searchProductFunc = (state, key) => {
+    let result = [...state.products];
+    let message = null;
+
+    if (key.length > 0) {
+        result = result.filter(p => {
+            return p.title.toLowerCase().includes(key.toLowerCase())
+        })
+
+        if (result.length === 0)
+            message = true
+
+        return {
+            ...state,
+            search: {
+                ...state.search,
+                result,
+                message
+            }
+        }
+    } else {
+        return {
+            ...state,
+            search: {
+                ...state.search,
+                result: [],
+                message
+            }
+        }
+    }
+}
+
 export const CatalogReducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case SET_FILTER:
             return filterProducts(state, action.filterId, action.category);
         case SET_CATALOG:
-                return {
-                    ...state,
-                    filterProducts: [...state.products]
+            return {
+                ...state,
+                filterProducts: [...state.products]
             }
         case SHOW_MORE_PRODUCTS:
             return {
                 ...state,
                 maxProduct: state.maxProduct + 8
             }
+        case SEARCH_PRODUCT:
+            return searchProductFunc(state, action.key);
+        case SET_SHOW_SEARCH:
+            return {
+                ...state,
+                search: {
+                    ...state.search,
+                    showSearch: action.value
+                }
+            }
         default:
             return state;
     }
 }
 
-export const setFilter = (category, filterId) => ({ type: SET_FILTER, filterId, category})
-export const setCatalog = () => ({ type: SET_CATALOG })
-export const showMoreProducts = () => ({ type: SHOW_MORE_PRODUCTS })
+export const setFilter = (category, filterId) => ({type: SET_FILTER, filterId, category})
+export const setCatalog = () => ({type: SET_CATALOG})
+export const showMoreProducts = () => ({type: SHOW_MORE_PRODUCTS})
+export const searchProduct = key => ({type: SEARCH_PRODUCT, key})
+export const setShowSearch = value => ({type: SET_SHOW_SEARCH, value})

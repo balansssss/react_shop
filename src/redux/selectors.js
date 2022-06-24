@@ -51,5 +51,18 @@ export const getFilters = state => {
     return state.CatalogReducer.filters
 }
 
-/*Product*/
+/*Search*/
+
+export const showSearch = state => {
+    return state.CatalogReducer.search.showSearch;
+}
+
+export const showSearchMessage = state => {
+    return state.CatalogReducer.search.message;
+}
+
+export const getSearchResult = state => {
+    return state.CatalogReducer.search.result;
+}
+
 

@@ -144,6 +144,7 @@ a {
     justify-content: space-between;
     padding: 20px 0;
     align-items: center;
+    position: relative;
 
     img {
       cursor: pointer;
@@ -548,23 +549,6 @@ a {
     font-size: 20px;
   }
 
-  /*.products {
-    flex-wrap: wrap;
-    margin-top: 0;
-
-    .product {
-      margin-top: 30px;
-
-      &:nth-child(3) {
-        display: flex;
-      }
-
-      &:nth-child(4) {
-        display: flex;
-      }
-    }
-  }*/
-
   .products {
     display: grid;
     grid-template-columns: 1fr;
@@ -630,6 +614,79 @@ a {
       option {
         cursor: pointer;
       }
+    }
+  }
+}
+
+/*Search*/
+.search {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  padding: 5px 15px 10px 15px;
+  z-index: 2;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  max-width: 250px;
+  color: $col_black;
+  animation: anim 2.5s forwards;
+
+  .search-header {
+    input {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $col_unactive;
+      width: 100%;
+      background: none;
+      padding: 5px 0;
+    }
+  }
+
+  .search-results {
+
+    .search-result {
+      @include flex_row();
+      align-items: center;
+      margin-top: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid $col_unactive;
+      padding-bottom: 5px;
+      animation: anim 2.5s forwards;
+
+      .product-img {
+        @include simple_size(45px);
+        filter: none!important;
+        -webkit-filter: none!important;
+      }
+
+      .product-info {
+        margin-left: 10px;
+
+        .product-title {
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+
+        .product-price {
+          line-height: 17px;
+          font-size: 14px;
+
+          .product-sale {
+            margin-left: 7px;
+            text-decoration: line-through;
+            color: $col_unactive;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+
+    .search-message {
+      font-size: 14px;
+      margin-top: 10px;
+      text-align: center;
+      padding-bottom: 5px;
+      animation: anim 2.5s forwards;
     }
   }
 }
