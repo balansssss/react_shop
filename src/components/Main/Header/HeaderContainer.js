@@ -6,6 +6,10 @@ import {changeDarkMode} from "../../../redux/reducers/Main/HeaderReducer";
 import {setShowSearch} from "../../../redux/reducers/Catalog/CatalogReducer";
 
 const HeaderContainer = props => {
+    if (props.showSearch) {
+        document.body.style.overflow = 'hidden';
+    }
+
     return (
         <Header darkMode={props.darkMode}
                 changeDarkMode={props.changeDarkMode}
