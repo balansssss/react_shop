@@ -19,3 +19,6 @@ export const SET_CATALOG = 'SET_CATALOG';
 export const SHOW_MORE_PRODUCTS = 'SHOW_MORE_PRODUCTS';
 export const SEARCH_PRODUCT = 'SEARCH_PRODUCT';
 export const SET_SHOW_SEARCH = 'SET_SHOW_SEARCH';
+
+/*CART*/
+export const ADD_TO_CART = 'ADD_TO_CART';

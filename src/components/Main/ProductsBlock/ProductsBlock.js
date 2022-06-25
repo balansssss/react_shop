@@ -3,6 +3,7 @@ import prev from "../../../assets/img/ProductsBlock/prev.png";
 import next from "../../../assets/img/ProductsBlock/next.png";
 
 const ProductsBlock = props => {
+
     return (
         <div className='productsblock'>
             <div className='head'>
@@ -30,7 +31,7 @@ const ProductsBlock = props => {
                                         : <p className='price'>{p.price} ₴</p>
                                 }
                                 <button className='button'>
-                                    <img src={cart_icon} alt='Cart button' className='icon'/>
+                                    <img src={cart_icon} onClick={() => props.addToCart(p)} alt='Cart button' className='icon'/>
                                 </button>
                             </div>
                         )

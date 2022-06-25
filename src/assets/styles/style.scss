@@ -97,6 +97,19 @@ $trans: .5s;
   font-family: 'Inter Regular';
   margin: 0;
   padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 5px;     /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;        /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $col_darkgrey;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+  }
 }
 
 a {
@@ -631,30 +644,29 @@ a {
   @include flex_row();
   justify-content: flex-end;
 
-  .search {
+  .column-header {
+    @include flex_row();
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $col_lightgrey;
+
+    .column-title {
+      font-size: 20px;
+    }
+
+    .column-cancel {
+      @include simple_size(15px);
+    }
+  }
+
+  .search, .cart {
     height: 100%;
     background-color: $col_white;
     right: 0;
-    padding: 20px 30px;
-    max-width: 250px;
+    padding: 30px;
     color: $col_black;
     width: 350px;
-
-    .search-header {
-      @include flex_row();
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 15px;
-      border-bottom: 1px solid $col_lightgrey;
-
-      .search-title {
-        font-size: 20px;
-      }
-
-      .search-cancel {
-        @include simple_size(15px);
-      }
-    }
 
     .search-input {
       margin-top: 20px;
@@ -669,20 +681,7 @@ a {
     .search-results {
       overflow-y: auto;
       margin-top: 15px;
-      max-height: 78%;
-
-      &::-webkit-scrollbar {
-        width: 5px;     /* width of the entire scrollbar */
-      }
-
-      &::-webkit-scrollbar-track {
-        background: none;        /* color of the tracking area */
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $col_darkgrey;    /* color of the scroll thumb */
-        border-radius: 20px;       /* roundness of the scroll thumb */
-      }
+      height: 75vh;
 
       .search-result {
         @include flex_row();
@@ -801,6 +800,12 @@ $sizes: ("sm":575.98px, "md":767.98px, "lg":991.98px, "xl":1199.98px);
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  .column-container {
+    .search, .cart {
+      width: 100%;
+    }
+  }
 }
 
 @include md("max", 480px) {
@@ -840,6 +845,14 @@ $sizes: ("sm":575.98px, "md":767.98px, "lg":991.98px, "xl":1199.98px);
 }
 
 @include md("max", 420px) {
+  .header {
+    .nav {
+      .item {
+        margin: 0 15px;
+      }
+    }
+  }
+
   .filter {
     .filter-options {
       flex-direction: column;

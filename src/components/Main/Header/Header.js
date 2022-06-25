@@ -4,6 +4,7 @@ import search from "../../../assets/img/Header/Search.png";
 import themeMode from "../../../assets/img/Header/ThemeMode.png";
 import {NavLink} from "react-router-dom";
 import SearchContainer from "../Search/SearchContainer";
+import CartContainer from "../Cart/CartContainer";
 
 const Header = props => {
 
@@ -21,6 +22,11 @@ const Header = props => {
                 {
                     props.showSearch
                         ? <SearchContainer />
+                        : null
+                }
+                {
+                    props.showCart
+                        ? <CartContainer />
                         : null
                 }
             </div>

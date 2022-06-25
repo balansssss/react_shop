@@ -39,6 +39,10 @@ export const getTitleCatalog = state => {
     return state.CatalogReducer.title
 }
 
+export const getAllProducts = state => {
+    return state.CatalogReducer.products;
+}
+
 export const getProducts = state => {
     return state.CatalogReducer.filterProducts;
 }
@@ -63,6 +67,15 @@ export const showSearchMessage = state => {
 
 export const getSearchResult = state => {
     return state.CatalogReducer.search.result;
+}
+
+/*Cart*/
+export const getCart = state => {
+    return state.CartReducer.cart;
+}
+
+export const showCart = state => {
+    return state.CartReducer.showCart;
 }
 
 

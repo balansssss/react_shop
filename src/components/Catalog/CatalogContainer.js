@@ -4,7 +4,7 @@ import HeaderContainer from "../Main/Header/HeaderContainer";
 import FooterContainer from "../Main/Footer/FooterContainer";
 import Catalog from "./Catalog";
 import {getProducts, getTitleCatalog, getMaxProduct} from "../../redux/selectors";
-import {ProductContainerWithNavigate} from "../Main/ProductsBlock/ProductContainerWithNavigate";
+import ProductContainerWithNavigate from "../Main/ProductsBlock/ProductContainerWithNavigate";
 import {setCatalog, showMoreProducts} from "../../redux/reducers/Catalog/CatalogReducer";
 import {useEffect} from "react";
 

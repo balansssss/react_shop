@@ -3,9 +3,9 @@ import HeaderContainer from "../Main/Header/HeaderContainer";
 import FooterContainer from "../Main/Footer/FooterContainer";
 import Product from "./Product";
 import {useParams} from "react-router-dom";
-import {getProducts} from "../../redux/selectors";
+import {getAllProducts} from "../../redux/selectors";
 import {useState} from "react";
-import {ProductContainerWithNavigate} from "../Main/ProductsBlock/ProductContainerWithNavigate";
+import ProductContainerWithNavigate from "../Main/ProductsBlock/ProductContainerWithNavigate";
 import {compose} from "redux";
 
 const ProductContainer = props => {
@@ -52,7 +52,7 @@ const ProductContainer = props => {
 
 const mapStateToProps = state => {
     return {
-        products: getProducts(state)
+        products: getAllProducts(state)
     }
 }
 

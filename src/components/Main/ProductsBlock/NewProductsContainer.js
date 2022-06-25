@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {getNewProducts, initializeNewProducts} from "../../../redux/selectors";
 import {nextNewProduct, prevNewProduct, initialNewProducts} from "../../../redux/reducers/Main/ProductsBlockReducer";
-import {ProductContainerWithNavigate} from "./ProductContainerWithNavigate";
+import ProductContainerWithNavigate from "./ProductContainerWithNavigate";
 
 class NewProductsContainer extends React.Component {
     constructor() {
@@ -21,7 +21,8 @@ class NewProductsContainer extends React.Component {
                            products={this.props.newProducts}
                            prevProduct={this.props.prevNewProduct}
                            nextProduct={this.props.nextNewProduct}
-                           openProduct={this.props.openProduct}/>
+                           openProduct={this.props.openProduct}
+                           addToCart={this.props.addToCart} />
         )
     }
 }
@@ -34,6 +35,10 @@ const mapStateToProps = state => {
 }
 
 export default compose(
-    connect(mapStateToProps, {prevNewProduct, nextNewProduct, initialNewProducts}),
+    connect(mapStateToProps, {
+        prevNewProduct,
+        nextNewProduct,
+        initialNewProducts
+    }),
     ProductContainerWithNavigate)
 (NewProductsContainer)

@@ -5,9 +5,9 @@ const Search = props => {
     return (
         <div className='column-container'>
             <div className='search'>
-                <div className='search-header'>
-                    <b className='search-title'>Пошук</b>
-                    <img className='search-cancel' src={cancel_img} alt='Cancel' onClick={() => props.setShowSearch(false)}/>
+                <div className='column-header'>
+                    <b className='column-title'>Пошук</b>
+                    <img className='column-cancel' src={cancel_img} alt='Cancel' onClick={() => props.setShowSearch(false)}/>
                 </div>
                 <input type='text'
                        name='search'

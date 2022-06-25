@@ -280,6 +280,26 @@ const searchProductFunc = (state, key) => {
     }
 }
 
+const showSearch = (state, value) => {
+    const search = {
+        ...state.search,
+        showSearch: value
+    }
+
+    if (value) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+        search.result = [];
+        search.message = null;
+    }
+
+    return {
+        ...state,
+       search
+    }
+}
+
 export const CatalogReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_FILTER:
@@ -297,13 +317,7 @@ export const CatalogReducer = (state = initialState, action) => {
         case SEARCH_PRODUCT:
             return searchProductFunc(state, action.key);
         case SET_SHOW_SEARCH:
-            return {
-                ...state,
-                search: {
-                    ...state.search,
-                    showSearch: action.value
-                }
-            }
+            return showSearch(state, action.value)
         default:
             return state;
     }
