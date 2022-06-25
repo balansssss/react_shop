@@ -1,7 +1,7 @@
 import Search from "./Search";
 import {connect} from "react-redux";
 import {getSearchResult, showSearchMessage} from "../../../redux/selectors";
-import {searchProduct} from "../../../redux/reducers/Catalog/CatalogReducer";
+import {searchProduct, setShowSearch} from "../../../redux/reducers/Catalog/CatalogReducer";
 
 const SearchContainer = props => {
     const searchProduct = event => {
@@ -12,7 +12,8 @@ const SearchContainer = props => {
     return (
         <Search searchResult={props.searchResult}
                 searchProduct={searchProduct}
-                searchMessage={props.searchMessage} />
+                searchMessage={props.searchMessage}
+                setShowSearch={props.setShowSearch} />
     )
 }
 
@@ -23,4 +24,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {searchProduct})(SearchContainer);
+export default connect(mapStateToProps, {
+    searchProduct,
+    setShowSearch
+})(SearchContainer);

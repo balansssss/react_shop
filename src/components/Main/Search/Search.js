@@ -1,17 +1,20 @@
-
+import cancel_img from "../../../assets/img/Search/cancel.png";
 
 const Search = props => {
 
     return (
-        <div className='search-container'>
+        <div className='column-container'>
             <div className='search'>
                 <div className='search-header'>
-                    <input type='text'
-                           name='search'
-                           placeholder='Введіть запит'
-                           autoComplete='off'
-                           onChange={ e => props.searchProduct(e) } />
+                    <b className='search-title'>Пошук</b>
+                    <img className='search-cancel' src={cancel_img} alt='Cancel' onClick={() => props.setShowSearch(false)}/>
                 </div>
+                <input type='text'
+                       name='search'
+                       placeholder='Введіть запит'
+                       autoComplete='off'
+                       className='search-input'
+                       onChange={ e => props.searchProduct(e) } />
                 <div className='search-results'>
                     {
                         props.searchResult.length > 0
@@ -19,7 +22,7 @@ const Search = props => {
                             props.searchResult.map(p=>{
                                 return (
                                     <article key={p.id} className='search-result'>
-                                        <div>
+                                        <div style={{margin: 0, padding: 0, height: '70px'}}>
                                             <img src={p.img.url} className='product-img' alt='Product'/>
                                         </div>
                                         <div className='product-info'>
