@@ -12,7 +12,7 @@ const Banner = props => {
                                  key={b.id} >
                             <b className='title'>{b.title}</b>
                             <p className='description'>{b.text}</p>
-                            <button>
+                            <button onClick={props.openPage}>
                                 {b.button.title}
                                 <img src={arrow} alt='icon' />
                             </button>
