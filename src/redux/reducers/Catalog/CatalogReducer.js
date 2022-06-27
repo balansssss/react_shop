@@ -288,6 +288,7 @@ const showSearch = (state, value) => {
 
     if (value) {
         document.body.style.overflow = 'hidden';
+        window.scrollTo(0,0);
     } else {
         document.body.style.overflow = 'auto';
         search.result = [];

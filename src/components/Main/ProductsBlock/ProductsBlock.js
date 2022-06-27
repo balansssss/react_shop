@@ -21,9 +21,10 @@ const ProductsBlock = props => {
                 {props.products.map((p,i)=>{
                     if (i<4) {
                         return (
-                            <div key={p.id} className='product' onClick={ () => props.openProduct(p.id)}>
+                            <div key={p.id} className='product'>
                                 <img alt='product'
-                                     src={p.img.url}/>
+                                     src={p.img.url}
+                                     onClick={ () => props.openProduct(p.id)}/>
                                 <p className='title'>{p.title}</p>
                                 {
                                     p.sale

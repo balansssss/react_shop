@@ -78,4 +78,20 @@ export const showCart = state => {
     return state.CartReducer.showCart;
 }
 
+export const showMessage = state => {
+    return state.CartReducer.showMessage;
+}
+
+export const getTextMessage = state => {
+    return state.CartReducer.textMessage;
+}
+
+export const getCartSum = state => {
+    let result = state.CartReducer.cart.reduce((sum, cur) => {
+        sum = cur.sale? sum + cur.count * cur.sale : sum + cur.count * cur.price;
+        return sum
+    }, 0);
+    return result;
+}
+
 

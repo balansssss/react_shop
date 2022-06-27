@@ -22,3 +22,6 @@ export const SET_SHOW_SEARCH = 'SET_SHOW_SEARCH';
 
 /*CART*/
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const CHANGE_PRODUCT_COUNT = 'CHANGE_PRODUCT_COUNT';
+export const SET_SHOW_CART = 'SET_SHOW_CART';
+export const BUY_CART = 'BUY_CART';

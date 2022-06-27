@@ -7,12 +7,13 @@ import {getAllProducts} from "../../redux/selectors";
 import {useState} from "react";
 import ProductContainerWithNavigate from "../Main/ProductsBlock/ProductContainerWithNavigate";
 import {compose} from "redux";
+import {addToCart} from "../../redux/reducers/Cart/CartReducer";
 
 const ProductContainer = props => {
     const params = useParams();
     const productId = params.id;
 
-    const [counter, setCounter] = useState(0);
+    const [counter, setCounter] = useState(1);
     const [details, setDetails] = useState(false);
 
     const showDetails = () => {
@@ -23,7 +24,7 @@ const ProductContainer = props => {
         if (symbol === '+') {
             setCounter(counter+1)
         }
-        if (symbol === '-' && counter > 0) {
+        if (symbol === '-' && counter > 1) {
             setCounter(counter-1)
         }
     }
@@ -36,6 +37,10 @@ const ProductContainer = props => {
         return product[0]
     }
 
+    const addToCart = product => {
+        props.addToCart(product, counter);
+    }
+
     return (
         <div>
             <HeaderContainer />
@@ -44,7 +49,8 @@ const ProductContainer = props => {
                      changeCounter={changeCounter}
                      details={details}
                      showDetails={showDetails}
-                     openProduct={props.openProduct} />
+                     openProduct={props.openProduct}
+                     addToCart={addToCart}/>
             <FooterContainer />
         </div>
     )
@@ -57,6 +63,8 @@ const mapStateToProps = state => {
 }
 
 export default compose(
-    connect(mapStateToProps, null),
+    connect(mapStateToProps, {
+        addToCart
+    }),
     ProductContainerWithNavigate)
 (ProductContainer);

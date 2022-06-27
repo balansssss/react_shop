@@ -21,7 +21,7 @@ const Search = props => {
                             ?
                             props.searchResult.map(p=>{
                                 return (
-                                    <article key={p.id} className='search-result'>
+                                    <article key={p.id} className='search-result' onClick={ ()=> props.openProduct(p.id)}>
                                         <div style={{margin: 0, padding: 0, height: '70px'}}>
                                             <img src={p.img.url} className='product-img' alt='Product'/>
                                         </div>

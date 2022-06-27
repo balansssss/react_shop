@@ -4,6 +4,7 @@ import Header from "./Header";
 import {getDarkMode, showCart, showSearch} from "../../../redux/selectors";
 import {changeDarkMode} from "../../../redux/reducers/Main/HeaderReducer";
 import {setShowSearch} from "../../../redux/reducers/Catalog/CatalogReducer";
+import {setShowCart} from "../../../redux/reducers/Cart/CartReducer";
 
 const HeaderContainer = props => {
 
@@ -12,7 +13,8 @@ const HeaderContainer = props => {
                 changeDarkMode={props.changeDarkMode}
                 showSearch={props.showSearch}
                 showCart={props.showCart}
-                setShowSearch={props.setShowSearch} />
+                setShowSearch={props.setShowSearch}
+                setShowCart={props.setShowCart} />
     )
 }
 
@@ -26,5 +28,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
     changeDarkMode,
-    setShowSearch
+    setShowSearch,
+    setShowCart
 })(HeaderContainer)

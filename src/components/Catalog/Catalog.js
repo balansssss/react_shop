@@ -10,8 +10,9 @@ const Catalog = props => {
             <div className='products'>
                 {props.products.map(p => {
                     return (
-                        <article key={p.id} className='product' onClick={() => props.openProduct(p.id)}>
+                        <article key={p.id} className='product'>
                             <img alt='product'
+                                 onClick={() => props.openProduct(p.id)}
                                  src={p.img.url}/>
                             <p className='title'>{p.title}</p>
                             {
@@ -20,7 +21,7 @@ const Catalog = props => {
                                     : <p className='price'>{p.price} ₴</p>
                             }
                             <button className='button'>
-                                <img src={cart_icon} alt='Cart button' className='icon'/>
+                                <img src={cart_icon} onClick={ () => props.addToCart(p) } alt='Cart button' className='icon'/>
                             </button>
                         </article>
                     )

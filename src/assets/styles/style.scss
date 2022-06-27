@@ -421,6 +421,23 @@ a {
 
 /*PRODUCT CARD*/
 
+@mixin but{
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.5s;
+  @content;
+
+  &:hover {
+    background-color: $col_primarydark;
+  }
+}
+
 .product-card {
   @include flex_row();
   justify-content: space-between;
@@ -455,66 +472,9 @@ a {
       font-size: 16px;
     }
 
-    .product-options {
-      margin-top: 30px;
-
-      .options-title {
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      button {
-        border: none;
-        cursor: pointer;
-      }
-
-      .but-counter {
-        border-radius: 50%;
-        @include simple_size(30px);
-        font-size: 18px;
-        transition: $trans;
-
-        &:hover {
-          background-color: $col_primarydark;
-          color: $col_white;
-        }
-      }
-
-      .counter {
-        margin: 0 15px;
-      }
-
-      .options-color {
-        @include flex_row();
-
-        .color {
-          @include simple_size(40px);
-          background-color: $col_primarydark;
-          border-radius: 50%;
-          margin-left: 5px;
-          cursor: pointer;
-
-          &:nth-child(1) {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-
     .but-buy {
-      margin-top: 50px;
-      border: none;
-      background-color: $col_black;
-      color: $col_white;
-      border-radius: 4px;
-      text-align: center;
-      padding: 15px;
-      cursor: pointer;
-      width: 100%;
-      transition: $trans;
-
-      &:hover {
-        background-color: $col_primarydark;
+      @include but() {
+        margin-top: 50px;
       }
     }
 
@@ -549,6 +509,52 @@ a {
       .detail-info {
         font-size: 14px;
         animation: slide 1.5s forwards;
+      }
+    }
+  }
+}
+
+.product-options {
+  margin-top: 30px;
+
+  .options-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  button {
+    border: none;
+    cursor: pointer;
+  }
+
+  .but-counter {
+    border-radius: 50%;
+    @include simple_size(30px);
+    font-size: 18px;
+    transition: $trans;
+
+    &:hover {
+      background-color: $col_primarydark;
+      color: $col_white;
+    }
+  }
+
+  .counter {
+    margin: 0 15px;
+  }
+
+  .options-color {
+    @include flex_row();
+
+    .color {
+      @include simple_size(40px);
+      background-color: $col_primarydark;
+      border-radius: 50%;
+      margin-left: 5px;
+      cursor: pointer;
+
+      &:nth-child(1) {
+        margin-left: 0;
       }
     }
   }
@@ -660,6 +666,15 @@ a {
     }
   }
 
+  .column-footer {
+    @include flex_row();
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px solid $col_lightgrey;
+    margin-top: 30px;
+  }
+
   .search, .cart {
     height: 100%;
     background-color: $col_white;
@@ -678,7 +693,7 @@ a {
       padding: 5px 0;
     }
 
-    .search-results {
+    .search-results, .cart-products {
       overflow-y: auto;
       margin-top: 15px;
       height: 75vh;
@@ -700,39 +715,78 @@ a {
           filter: none!important;
           -webkit-filter: none!important;
         }
+      }
+    }
+
+    .cart-products {
+      margin-top: 0;
+      height: 70vh;
+
+      .product-info {
+        margin-left: 10px;
+
+        .product-title {
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+
+        .product-price {
+          line-height: 17px;
+          font-size: 14px;
+
+          .product-sale {
+            margin-left: 7px;
+            text-decoration: line-through;
+            color: $col_unactive;
+            line-height: 18px;
+          }
+        }
+
+        .product-options {
+          margin-top: 12px;
+        }
+      }
+
+      .cart-product {
+        @include flex_row();
+        margin-top: 30px;
+        animation: anim 2s forwards;
+
+        .product-img {
+          @include simple_size(90px);
+        }
 
         .product-info {
-          margin-left: 10px;
+          margin-left: 20px;
+        }
 
-          .product-title {
-            margin-bottom: 5px;
-            font-size: 14px;
-          }
-
-          .product-price {
-            line-height: 17px;
-            font-size: 14px;
-
-            .product-sale {
-              margin-left: 7px;
-              text-decoration: line-through;
-              color: $col_unactive;
-              line-height: 18px;
-            }
-          }
+        .product-price {
+          margin-top: 10px;
         }
       }
 
       .search-message {
-        font-size: 14px;
-        margin-top: 10px;
-        text-align: center;
-        padding-bottom: 5px;
-        animation: anim 2.5s forwards;
+        margin-top: 35vh;
+      }
+    }
+
+    .but-buyCart {
+      @include but() {
+        margin-top: 15px;
       }
     }
   }
+
+  .search-message {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+    animation: anim 2.5s forwards;
+  }
 }
+
+
 
 /*Media Screens*/
 

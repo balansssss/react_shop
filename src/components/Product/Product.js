@@ -46,7 +46,7 @@ const Product = props => {
                             : null
                     }
 
-                <button className='but-buy'>Купити зараз</button>
+                <button className='but-buy' onClick={() => props.addToCart(p)}>Купити зараз</button>
                 <div className='details'>
                     <div className='detail-header'>
                         <div className='title'>Опис</div>

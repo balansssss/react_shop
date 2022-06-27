@@ -7,6 +7,7 @@ import {getProducts, getTitleCatalog, getMaxProduct} from "../../redux/selectors
 import ProductContainerWithNavigate from "../Main/ProductsBlock/ProductContainerWithNavigate";
 import {setCatalog, showMoreProducts} from "../../redux/reducers/Catalog/CatalogReducer";
 import {useEffect} from "react";
+import {addToCart} from "../../redux/reducers/Cart/CartReducer";
 
 const CatalogContainer = props => {
 
@@ -25,7 +26,8 @@ const CatalogContainer = props => {
                      title={props.titleCatalog}
                      openProduct={props.openProduct}
                      showMoreProducts={props.showMoreProducts}
-                     showMoreButton={showMoreButton()} />
+                     showMoreButton={showMoreButton()}
+                     addToCart={props.addToCart} />
             <FooterContainer />
         </div>
     )
@@ -40,6 +42,10 @@ const mapStateToProps = state => {
 }
 
 export default compose(
-    connect(mapStateToProps, {setCatalog, showMoreProducts}),
+    connect(mapStateToProps, {
+        setCatalog,
+        showMoreProducts,
+        addToCart
+    }),
     ProductContainerWithNavigate)
 (CatalogContainer);
