@@ -163,6 +163,18 @@ a {
       @include simple_size(16px);
     }
 
+    .cart-count {
+      position: absolute;
+      right: -15px;
+      top: -15px;
+      font-size: 13px;
+      background-color: #fd2727;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      text-align: center;
+    }
+
     .mode {
       img {
 
@@ -177,6 +189,7 @@ a {
 
     .buttons {
       @include flex_row;
+      position: relative;
 
       img {
         &:nth-child(1) {

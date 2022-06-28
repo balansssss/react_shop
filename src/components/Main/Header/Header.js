@@ -18,6 +18,7 @@ const Header = props => {
                 <div className='buttons'>
                     <img src={search} title='Пошук' alt='Пошук' onClick={() => props.setShowSearch(true)} />
                     <img src={cart} title='Кошик' alt='Кошик' onClick={() => props.setShowCart(true)}/>
+                    <span className='cart-count'>{props.countCart}</span>
                 </div>
                 {
                     props.showSearch

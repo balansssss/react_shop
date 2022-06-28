@@ -3,6 +3,10 @@ export const getDarkMode = state => {
     return state.HeaderReducer.darkMode
 }
 
+export const getCountCart = state => {
+    return state.CartReducer.cart.length;
+}
+
 /*Banner*/
 export const getBanners = state => {
     return state.BannerReducer.banners
